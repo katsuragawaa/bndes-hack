@@ -24,7 +24,7 @@ const Analysis: NextPage = () => {
         </>
       </StickyTop>
       <main className="container mx-auto mt-56 flex min-h-screen flex-col items-center">
-        <div className="mt-64 mb-24 w-[720px] text-xl font-light">
+        <div className="my-24 w-[720px] text-xl font-light">
           Assim que chegarmos em uma conclusão vamos te enviar uma mensagem,
           fique de olho no e-mail e número de celular que nos forneceu no
           início.
