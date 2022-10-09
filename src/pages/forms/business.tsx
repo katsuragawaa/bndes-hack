@@ -104,6 +104,9 @@ const Business: NextPage<Record<string, string>> = ({
   const placeRef = useRef<HTMLDivElement>(null);
   const saleRef = useRef<HTMLDivElement>(null);
   const bestRef = useRef<HTMLDivElement>(null);
+  const financeRef = useRef<HTMLDivElement>(null);
+  const personalRef = useRef<HTMLDivElement>(null);
+  const businessRef = useRef<HTMLDivElement>(null);
 
   const scrollInto = (ref: RefObject<HTMLDivElement>) => {
     if (!ref.current) {
@@ -464,10 +467,235 @@ const Business: NextPage<Record<string, string>> = ({
             </div>
           </div>
 
+          <div className="mt-24 scroll-mt-72 text-neutral-600" ref={financeRef}>
+            7. Saúde financeira
+          </div>
+          <div className="mt-4 flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
+              Já pegou dinheiro emprestado?
+              <div className="flex gap-12 text-center text-white">
+                <div className="w-64 cursor-pointer rounded-full bg-hack-blue-dark py-2">
+                  Sim, já precisei de crédito
+                </div>
+                <div className="w-64 cursor-pointer rounded-full bg-hack-blue-dark py-2">
+                  Não, essa é a primeira vez
+                </div>
+              </div>
+              <div className="flex flex-col gap-4">
+                Quando foi utilizado o crédito?
+                <input
+                  className="w-48 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="date"
+                  onFocus={() => scrollInto(financeRef)}
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              Qual foi o valor?
+              <input
+                className="w-48 rounded-xl border border-neutral-600 py-2 px-4"
+                type="text"
+                placeholder="2000"
+                onFocus={() => scrollInto(financeRef)}
+              />
+            </div>
+            <div className="flex flex-col gap-4">
+              As finanças da sua casa e do seu negócio são separadas?
+              <div className="flex gap-12 text-center text-white">
+                <div className="w-full cursor-pointer rounded-full bg-hack-blue-dark py-2">
+                  Sim, tudo é separado
+                </div>
+                <div className="w-full cursor-pointer rounded-full bg-hack-blue-dark py-2">
+                  Não, pago minhas contas com o caixa
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="mt-24 scroll-mt-72 text-neutral-600"
+            ref={personalRef}
+          >
+            8. Contas pessoais
+          </div>
+          <div className="mt-4 flex flex-col gap-6">
+            <div className="flex gap-12">
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Alimentação</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(personalRef)}
+                />
+              </div>
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Aluguel da casa</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(personalRef)}
+                />
+              </div>
+            </div>
+            <div className="flex gap-12">
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Vestuário</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(personalRef)}
+                />
+              </div>
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Educação</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(personalRef)}
+                />
+              </div>
+            </div>
+            <div className="flex gap-12">
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Contas (água, luz)</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(personalRef)}
+                />
+              </div>
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Parcelas de compras</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(personalRef)}
+                />
+              </div>
+            </div>
+            <div className="flex gap-12">
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Renda familiar</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(personalRef)}
+                />
+              </div>
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Poupança</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(personalRef)}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="mt-24 scroll-mt-72 text-neutral-600"
+            ref={businessRef}
+          >
+            9. Contas empresariais
+          </div>
+          <div className="mt-4 flex flex-col gap-6">
+            <div className="flex gap-12">
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Operação</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(businessRef)}
+                />
+              </div>
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Aluguel comercial</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(businessRef)}
+                />
+              </div>
+            </div>
+            <div className="flex gap-12">
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Máquinas/equipamentos</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(businessRef)}
+                />
+              </div>
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Fornecedores</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(businessRef)}
+                />
+              </div>
+            </div>
+            <div className="flex gap-12">
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Contas a pagar</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(businessRef)}
+                />
+              </div>
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Contas a receber</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(businessRef)}
+                />
+              </div>
+            </div>
+            <div className="flex gap-12">
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Valore em caixa</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(businessRef)}
+                />
+              </div>
+              <div className="flex flex-1 items-center gap-4">
+                <div className="flex-4">Produtos em estoque</div>
+                <input
+                  className="w-full flex-1 rounded-xl border border-neutral-600 py-2 px-4"
+                  type="text"
+                  placeholder="2000"
+                  onFocus={() => scrollInto(businessRef)}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-24">Tudo certo? Se sim, só clicar no botão!</div>
+
           <input
-            className="mt-24 mb-[calc(100vh-450px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
+            className="mt-8 mb-[calc(100vh-450px)] h-10 w-48 cursor-pointer rounded-full bg-hack-green font-bold text-white"
             type="submit"
-            value="Avançar"
+            value="Próximo passo!"
           />
         </form>
       </main>

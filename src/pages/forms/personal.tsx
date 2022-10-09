@@ -132,9 +132,9 @@ const Personal: NextPage = () => {
           </div>
 
           <input
-            className="mt-24 mb-[calc(100vh-450px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
+            className="mt-24 mb-[calc(100vh-450px)] h-10 w-48 cursor-pointer rounded-full bg-hack-green font-bold text-white"
             type="submit"
-            value="Avançar"
+            value="Vamos lá!"
           />
         </form>
       </main>
