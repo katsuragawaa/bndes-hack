@@ -28,8 +28,8 @@ const Personal: NextPage = () => {
   return (
     <>
       <Head>
-        <title>avalizo | Informações Pessoais</title>
-        <meta name="description" content="avalizoathon solution" />
+        <title>avalizo | Informações pessoais</title>
+        <meta name="description" content="avalizo" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -115,7 +115,7 @@ const Personal: NextPage = () => {
               Por qual telefone podemos entrar em contato?
               <input
                 className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
-                type="phone"
+                type="text"
                 placeholder="(DDD) 99999-9999"
                 onFocus={() => scrollInto(contactRef)}
               />

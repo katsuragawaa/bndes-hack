@@ -14,7 +14,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>avalizo</title>
-        <meta name="description" content="avalizoathon solution" />
+        <meta name="description" content="avalizo" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

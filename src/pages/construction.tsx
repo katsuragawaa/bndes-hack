@@ -7,7 +7,7 @@ const Construction: NextPage = () => {
     <>
       <Head>
         <title>avalizo | Em construção</title>
-        <meta name="description" content="avalizoathon solution" />
+        <meta name="description" content="avalizo" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
