@@ -6,7 +6,6 @@ import moment from "moment";
 
 import { IoAddOutline } from "react-icons/io5";
 import { StickyTop } from "../../components/StickyTop";
-import { set } from "zod";
 
 export async function getStaticProps() {
   moment.locale("pt-br");
@@ -43,8 +42,17 @@ const Inventory = ({ scroll }: { scroll: () => void }) => {
   );
 };
 
-const BestSale = ({ scroll }: { scroll: () => void }) => (
+const BestSale = ({ index, scroll }: { index: number; scroll: () => void }) => (
   <>
+    <div className="flex flex-col gap-4">
+      {index} Nome do produto
+      <input
+        className="w-64 rounded-xl border border-neutral-600 py-2 px-4 transition-all duration-300 ease-out focus:w-full"
+        type="text"
+        placeholder="Brigadeiros"
+        onFocus={scroll}
+      />
+    </div>
     <div className="flex gap-8">
       <div className="flex flex-col gap-4">
         Valor de compra
@@ -52,7 +60,6 @@ const BestSale = ({ scroll }: { scroll: () => void }) => (
           className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
           type="text"
           placeholder="2000"
-          onFocus={scroll}
         />
       </div>
       <div className="flex flex-col gap-4">
@@ -61,7 +68,6 @@ const BestSale = ({ scroll }: { scroll: () => void }) => (
           className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
           type="text"
           placeholder="1500"
-          onFocus={scroll}
         />
       </div>
     </div>
@@ -72,7 +78,6 @@ const BestSale = ({ scroll }: { scroll: () => void }) => (
           className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
           type="text"
           placeholder="800"
-          onFocus={scroll}
         />
       </div>
       <div className="mb-4 flex flex-col gap-4">
@@ -81,7 +86,6 @@ const BestSale = ({ scroll }: { scroll: () => void }) => (
           className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
           type="text"
           placeholder="800"
-          onFocus={scroll}
         />
       </div>
     </div>
@@ -142,12 +146,15 @@ const Business: NextPage<Record<string, string>> = ({
     }
     setInventories((prev) => [
       ...prev,
-      <Inventory key={prev.length} scroll={() => scrollInto(inventoryRef)} />,
+      <Inventory
+        key={prev.length + 1}
+        scroll={() => scrollInto(inventoryRef)}
+      />,
     ]);
   };
 
   const [bestSales, setBestSales] = useState<JSX.Element[]>([
-    <BestSale key={1} scroll={() => scrollInto(bestRef)} />,
+    <BestSale key={1} index={1} scroll={() => scrollInto(bestRef)} />,
   ]);
 
   const addBestSale = () => {
@@ -157,7 +164,11 @@ const Business: NextPage<Record<string, string>> = ({
 
     setBestSales((prev) => [
       ...prev,
-      <BestSale key={prev.length} scroll={() => scrollInto(bestRef)} />,
+      <BestSale
+        key={prev.length + 1}
+        index={prev.length + 1}
+        scroll={() => scrollInto(bestRef)}
+      />,
     ]);
   };
 
