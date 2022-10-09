@@ -1,12 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import { StickyTop } from "../../components/StickyTop";
 import { FormEvent, RefObject, useRef } from "react";
 
 const Personal: NextPage = () => {
+  const router = useRouter();
+
   const aboutRef = useRef<HTMLDivElement>(null);
   const birthdayRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const scrollInto = (ref: RefObject<HTMLDivElement>) => {
     if (!ref.current) {
@@ -18,6 +22,7 @@ const Personal: NextPage = () => {
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    router.push("/forms/business");
   };
 
   return (
@@ -64,7 +69,7 @@ const Personal: NextPage = () => {
           </div>
 
           <div
-            className="mt-24 scroll-mt-72 text-neutral-600"
+            className="mt-16 scroll-mt-72 text-neutral-600"
             ref={birthdayRef}
           >
             2. Data de nascimento
@@ -102,8 +107,32 @@ const Personal: NextPage = () => {
             </div>
           </div>
 
+          <div className="mt-16 scroll-mt-72 text-neutral-600" ref={contactRef}>
+            3. Contato
+          </div>
+          <div className="mt-4 flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
+              Por qual telefone podemos entrar em contato?
+              <input
+                className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
+                type="phone"
+                placeholder="(DDD) 99999-9999"
+                onFocus={() => scrollInto(contactRef)}
+              />
+            </div>
+            <div className="flex flex-col gap-4">
+              Enviaremos mais informações por e-mail, qual é o seu?
+              <input
+                className="w-64 rounded-xl border border-neutral-600 py-2 px-4 transition-all duration-300 ease-out focus:w-full"
+                type="text"
+                placeholder="seu-email@mail.com"
+                onFocus={() => scrollInto(contactRef)}
+              />
+            </div>
+          </div>
+
           <input
-            className="mt-12 mb-[calc(100vh-450px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
+            className="mt-16 mb-[calc(100vh-450px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
             type="submit"
             value="Avançar"
           />
