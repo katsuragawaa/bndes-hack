@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { LandingImage } from "../components/LandingImage";
+import { ActionButton } from "../components/ActionButton";
 
 const Home: NextPage = () => {
   return (
@@ -10,11 +12,18 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto flex min-h-screen flex-col items-center justify-center p-4">
-        <h1 className="text-center text-5xl font-extrabold leading-normal text-gray-700 md:text-[5rem]">
-          <span className="text-purple-300">BNDES</span> Hackathon
-        </h1>
-        <p className="mt-6 text-gray-700">15k ta no bolso</p>
+      <main className="min-w-screen min-h-screen bg-gradient-to-tl from-hack-blue to-hack-blue-dark">
+        <div className="py-32 px-10 text-white">
+          <h1 className="text-5xl font-bold">APP BNDES</h1>
+          <div>Lero lero</div>
+        </div>
+
+        <div className="fixed bottom-8 w-screen">
+          <LandingImage />
+        </div>
+        <div className="fixed bottom-20 flex w-screen justify-center">
+          <ActionButton value="Solicitar crédito" />
+        </div>
       </main>
     </>
   );
