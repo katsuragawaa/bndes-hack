@@ -6,6 +6,7 @@ import moment from "moment";
 
 import { IoAddOutline } from "react-icons/io5";
 import { StickyTop } from "../../components/StickyTop";
+import { set } from "zod";
 
 export async function getStaticProps() {
   moment.locale("pt-br");
@@ -42,6 +43,51 @@ const Inventory = ({ scroll }: { scroll: () => void }) => {
   );
 };
 
+const BestSale = ({ scroll }: { scroll: () => void }) => (
+  <>
+    <div className="flex gap-8">
+      <div className="flex flex-col gap-4">
+        Valor de compra
+        <input
+          className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
+          type="text"
+          placeholder="2000"
+          onFocus={scroll}
+        />
+      </div>
+      <div className="flex flex-col gap-4">
+        Valor de venda
+        <input
+          className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
+          type="text"
+          placeholder="1500"
+          onFocus={scroll}
+        />
+      </div>
+    </div>
+    <div className="flex gap-8">
+      <div className="flex flex-col gap-4">
+        Quantidade vendida
+        <input
+          className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
+          type="text"
+          placeholder="800"
+          onFocus={scroll}
+        />
+      </div>
+      <div className="mb-4 flex flex-col gap-4">
+        Estoque
+        <input
+          className="w-64 rounded-xl border border-neutral-600 py-2 px-4"
+          type="text"
+          placeholder="800"
+          onFocus={scroll}
+        />
+      </div>
+    </div>
+  </>
+);
+
 const Business: NextPage<Record<string, string>> = ({
   month,
   lastMonth,
@@ -51,6 +97,17 @@ const Business: NextPage<Record<string, string>> = ({
   const inventoryRef = useRef<HTMLDivElement>(null);
   const investRef = useRef<HTMLDivElement>(null);
   const remunerationRef = useRef<HTMLDivElement>(null);
+  const placeRef = useRef<HTMLDivElement>(null);
+  const saleRef = useRef<HTMLDivElement>(null);
+  const bestRef = useRef<HTMLDivElement>(null);
+
+  const scrollInto = (ref: RefObject<HTMLDivElement>) => {
+    if (!ref.current) {
+      return;
+    }
+
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   const [showProduct, setShowProduct] = useState(false);
   const showProductQuestion = () => setShowProduct(true);
@@ -61,23 +118,48 @@ const Business: NextPage<Record<string, string>> = ({
     scrollInto(remunerationRef);
   };
 
+  const [showComercial, setShowComercial] = useState(false);
+  const showComercialQuestion = () => {
+    setShowComercial(true);
+    setShowTime(false);
+    scrollInto(placeRef);
+  };
+
+  const [showTime, setShowTime] = useState(false);
+  const showTimeQuestion = () => {
+    setShowTime(true);
+    setShowComercial(false);
+    scrollInto(placeRef);
+  };
+
   const [inventories, setInventories] = useState<JSX.Element[]>([
     <Inventory key={1} scroll={() => scrollInto(inventoryRef)} />,
   ]);
 
-  const scrollInto = (ref: RefObject<HTMLDivElement>) => {
-    if (!ref.current) {
+  const addInventory = () => {
+    if (inventories.length >= 3) {
       return;
     }
-
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const addInventory = () =>
     setInventories((prev) => [
       ...prev,
       <Inventory key={prev.length} scroll={() => scrollInto(inventoryRef)} />,
     ]);
+  };
+
+  const [bestSales, setBestSales] = useState<JSX.Element[]>([
+    <BestSale key={1} scroll={() => scrollInto(bestRef)} />,
+  ]);
+
+  const addBestSale = () => {
+    if (bestSales.length >= 3) {
+      return;
+    }
+
+    setBestSales((prev) => [
+      ...prev,
+      <BestSale key={prev.length} scroll={() => scrollInto(bestRef)} />,
+    ]);
+  };
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -134,7 +216,7 @@ const Business: NextPage<Record<string, string>> = ({
           </div>
 
           <div
-            className="mt-16 scroll-mt-72 text-neutral-600"
+            className="mt-24 scroll-mt-72 text-neutral-600"
             ref={inventoryRef}
           >
             2. Estoque
@@ -157,7 +239,7 @@ const Business: NextPage<Record<string, string>> = ({
             </div>
           </div>
 
-          <div className="mt-16 scroll-mt-72 text-neutral-600" ref={investRef}>
+          <div className="mt-24 scroll-mt-72 text-neutral-600" ref={investRef}>
             3. Investimentos
           </div>
           <div className="mt-4 flex flex-col gap-6">
@@ -193,24 +275,13 @@ const Business: NextPage<Record<string, string>> = ({
                 </div>
               </div>
             </div>
-            {showProduct && (
-              <div className="flex flex-col gap-4">
-                Qual é o produto?
-                <input
-                  className="w-64 rounded-xl border border-neutral-600 py-2 px-4 transition-all duration-300 ease-out focus:w-full"
-                  type="text"
-                  placeholder="Bolos e doces"
-                  onFocus={() => scrollInto(investRef)}
-                />
-              </div>
-            )}
           </div>
 
           <div
-            className="mt-16 scroll-mt-72 text-neutral-600"
+            className="mt-24 scroll-mt-72 text-neutral-600"
             ref={remunerationRef}
           >
-            3. Remuneração
+            4. Remuneração
           </div>
           <div className="mt-4 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
@@ -240,8 +311,150 @@ const Business: NextPage<Record<string, string>> = ({
             )}
           </div>
 
+          <div className="mt-24 scroll-mt-72 text-neutral-600" ref={placeRef}>
+            5. Estabelecimento
+          </div>
+          <div className="mt-4 flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
+              Onde funciona seu empreendimento?
+              <div className="flex gap-12 text-center text-white">
+                <div
+                  className="w-full cursor-pointer rounded-full bg-hack-blue-dark py-2"
+                  onClick={showTimeQuestion}
+                >
+                  Na minha residência
+                </div>
+                <div
+                  className="w-full cursor-pointer rounded-full bg-hack-blue-dark py-2"
+                  onClick={showTimeQuestion}
+                >
+                  Na rua
+                </div>
+                <div
+                  className="w-full cursor-pointer rounded-full bg-hack-blue-dark py-2"
+                  onClick={showComercialQuestion}
+                >
+                  Em um ponto comercial
+                </div>
+              </div>
+            </div>
+            {showComercial && (
+              <div className="flex flex-col gap-4">
+                O ponto comercial é
+                <div className="flex gap-12 text-center text-white">
+                  <div
+                    className="w-full cursor-pointer rounded-full bg-hack-blue-dark py-2"
+                    onClick={showTimeQuestion}
+                  >
+                    Eu alugo o local
+                  </div>
+                  <div className="w-full cursor-pointer rounded-full bg-hack-blue-dark py-2">
+                    O local é minha propriedade
+                  </div>
+                </div>
+              </div>
+            )}
+            {showTime && (
+              <div className="flex flex-col gap-4">
+                Espera estabelecer um ponto comercial em até quanto tempo?
+                <input
+                  className="w-64 rounded-xl border border-neutral-600 py-2 px-4 transition-all duration-300 ease-out focus:w-full"
+                  type="text"
+                  placeholder="Em até 3 meses"
+                  onFocus={() => scrollInto(placeRef)}
+                />
+              </div>
+            )}
+          </div>
+
+          <div className="mt-24 scroll-mt-72 text-neutral-600" ref={saleRef}>
+            6. Vendas
+          </div>
+          <div className="mt-4 flex flex-col gap-6">
+            <div className="flex flex-col gap-4">
+              Como foram os últimos 3 meses?
+              <div className="flex gap-8">
+                <div className="flex flex-col gap-4 capitalize">
+                  {month}
+                  <input
+                    className="w-48 rounded-xl border border-neutral-600 py-2 px-4"
+                    type="text"
+                    placeholder="2000"
+                    onFocus={() => scrollInto(saleRef)}
+                  />
+                </div>
+                <div className="flex flex-col gap-4 capitalize">
+                  {lastMonth}
+                  <input
+                    className="w-48 rounded-xl border border-neutral-600 py-2 px-4"
+                    type="text"
+                    placeholder="1500"
+                    onFocus={() => scrollInto(saleRef)}
+                  />
+                </div>
+                <div className="flex flex-col gap-4 capitalize">
+                  {lastLastMonth}
+                  <input
+                    className="w-48 rounded-xl border border-neutral-600 py-2 px-4"
+                    type="text"
+                    placeholder="800"
+                    onFocus={() => scrollInto(saleRef)}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              As vendas foram principalmente
+              <div className="flex gap-12 text-center text-white">
+                <div className="w-48 cursor-pointer rounded-full bg-hack-blue-dark py-2">
+                  À vista
+                </div>
+                <div className="w-48 cursor-pointer rounded-full bg-hack-blue-dark py-2">
+                  Parcelado
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4">
+              Em um mês bom, quanto o seu negócio fatura?
+              <input
+                className="w-64 rounded-xl border border-neutral-600 py-2 px-4 transition-all duration-300 ease-out focus:w-full"
+                type="text"
+                placeholder="4000"
+                onFocus={() => scrollInto(saleRef)}
+              />
+            </div>
+            <div className="flex flex-col gap-4">
+              Em média espera faturar quanto por mês?
+              <input
+                className="w-64 rounded-xl border border-neutral-600 py-2 px-4 transition-all duration-300 ease-out focus:w-full"
+                type="text"
+                placeholder="3000"
+                onFocus={() => scrollInto(saleRef)}
+              />
+            </div>
+            <div className="flex flex-col gap-4">
+              E quando é um mês ruim?
+              <input
+                className="w-64 rounded-xl border border-neutral-600 py-2 px-4 transition-all duration-300 ease-out focus:w-full"
+                type="text"
+                placeholder="2000"
+                onFocus={() => scrollInto(saleRef)}
+              />
+            </div>
+            <div className="flex scroll-mt-72 flex-col gap-4" ref={bestRef}>
+              Quais são os campeões de venda?
+              {bestSales.map((i) => i)}
+              <div
+                className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-neutral-600"
+                onClick={addBestSale}
+              >
+                <IoAddOutline className="text-xl" />
+              </div>
+            </div>
+          </div>
+
           <input
-            className="mt-16 mb-[calc(100vh-450px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
+            className="mt-24 mb-[calc(100vh-450px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
             type="submit"
             value="Avançar"
           />

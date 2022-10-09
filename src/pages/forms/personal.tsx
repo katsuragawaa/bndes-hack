@@ -69,7 +69,7 @@ const Personal: NextPage = () => {
           </div>
 
           <div
-            className="mt-16 scroll-mt-72 text-neutral-600"
+            className="mt-24 scroll-mt-72 text-neutral-600"
             ref={birthdayRef}
           >
             2. Data de nascimento
@@ -107,7 +107,7 @@ const Personal: NextPage = () => {
             </div>
           </div>
 
-          <div className="mt-16 scroll-mt-72 text-neutral-600" ref={contactRef}>
+          <div className="mt-24 scroll-mt-72 text-neutral-600" ref={contactRef}>
             3. Contato
           </div>
           <div className="mt-4 flex flex-col gap-6">
@@ -132,7 +132,7 @@ const Personal: NextPage = () => {
           </div>
 
           <input
-            className="mt-16 mb-[calc(100vh-450px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
+            className="mt-24 mb-[calc(100vh-450px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
             type="submit"
             value="Avançar"
           />
