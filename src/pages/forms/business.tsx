@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { FormEvent, RefObject, useRef, useState } from "react";
 import moment from "moment";
 
@@ -97,6 +97,8 @@ const Business: NextPage<Record<string, string>> = ({
   lastMonth,
   lastLastMonth,
 }) => {
+  const router = useRouter();
+
   const typeRef = useRef<HTMLDivElement>(null);
   const inventoryRef = useRef<HTMLDivElement>(null);
   const investRef = useRef<HTMLDivElement>(null);
@@ -177,6 +179,7 @@ const Business: NextPage<Record<string, string>> = ({
 
   const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    router.push("/forms/documents")
   };
 
   return (
