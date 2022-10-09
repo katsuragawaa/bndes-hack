@@ -38,8 +38,8 @@ const Personal: NextPage = () => {
       </StickyTop>
 
       <main className="container mx-auto mt-56 flex min-h-screen flex-col items-center">
-        <form className="my-8 w-[720px]" onSubmit={submit}>
-          <div className="scroll-mt-64 text-neutral-600" ref={aboutRef}>
+        <form className="my-16 w-[720px]" onSubmit={submit}>
+          <div className="scroll-mt-72 text-neutral-600" ref={aboutRef}>
             1. Sobre você
           </div>
           <div className="mt-4 flex flex-col gap-6">
@@ -64,7 +64,7 @@ const Personal: NextPage = () => {
           </div>
 
           <div
-            className="mt-24 scroll-mt-64 text-neutral-600"
+            className="mt-24 scroll-mt-72 text-neutral-600"
             ref={birthdayRef}
           >
             2. Data de nascimento
@@ -103,7 +103,7 @@ const Personal: NextPage = () => {
           </div>
 
           <input
-            className="mt-12 mb-[calc(100vh-500px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
+            className="mt-12 mb-[calc(100vh-450px)] h-10 w-32 cursor-pointer rounded-full bg-hack-green font-bold text-white"
             type="submit"
             value="Avançar"
           />
