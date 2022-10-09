@@ -8,6 +8,7 @@ const Home: NextPage = () => {
   const router = useRouter();
   const redirect = () => router.push("/forms/personal");
   const goHome = () => router.push("/");
+  const underConstruction = () => router.push("/construction");
 
   return (
     <>
@@ -28,7 +29,7 @@ const Home: NextPage = () => {
             >
               avalizo
             </div>
-            <ActionButton value="Acompanhar pedido" action={() => null} />
+            <ActionButton value="Acompanhar pedido" action={underConstruction} />
           </div>
 
           <div className="flex h-[calc(100vh-112px)] flex-col items-center justify-center">
