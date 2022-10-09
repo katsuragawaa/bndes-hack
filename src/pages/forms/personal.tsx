@@ -23,8 +23,8 @@ const Personal: NextPage = () => {
   return (
     <>
       <Head>
-        <title>BNDES Hack | Informações Pessoais</title>
-        <meta name="description" content="BNDES hackathon solution" />
+        <title>avalizo | Informações Pessoais</title>
+        <meta name="description" content="avalizoathon solution" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

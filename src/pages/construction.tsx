@@ -6,8 +6,8 @@ const Construction: NextPage = () => {
   return (
     <>
       <Head>
-        <title>BNDES Hack | Em construção</title>
-        <meta name="description" content="BNDES hackathon solution" />
+        <title>avalizo | Em construção</title>
+        <meta name="description" content="avalizoathon solution" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

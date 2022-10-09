@@ -13,8 +13,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>BNDES Hack</title>
-        <meta name="description" content="BNDES hackathon solution" />
+        <title>avalizo</title>
+        <meta name="description" content="avalizoathon solution" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
