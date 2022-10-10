@@ -41,7 +41,7 @@ Nossa plataforma tem foco na democratização, auxiliando na evolução dos sist
 
 
 ## ⚡️ Layout
-Você pode visualizar o layout do projeto através desse [link](https://www.figma.com/file/kbzetMiRJhDJDApSJnRZAJ/APP-BNDES?node-id=3%3A86). É necessário ter conta no Figma para acessá-lo.
+Você pode visualizar o layout do projeto através desse [link](https://www.figma.com/file/kbzetMiRJhDJDApSJnRZAJ/APP-BNDES?node-id=3%3A86).
 
 ----
 
