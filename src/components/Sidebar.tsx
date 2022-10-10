@@ -5,7 +5,7 @@ export const Sidebar = () => {
   const current = router.pathname;
 
   return (
-    <div className="fixed left-0 flex h-full w-52 flex-col gap-4 bg-hack-purple z-0">
+    <div className="fixed left-0 top-0 flex h-full w-52 flex-col gap-4 bg-hack-purple z-0">
       <div className="ml-8 mt-28 flex items-center justify-between">
         <div className="text-white">Perfil</div>
         {current.includes("profile") && (
