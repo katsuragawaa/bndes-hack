@@ -1,50 +1,45 @@
-# Create T3 App
+# 💰 avalizo
 
-This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
+![image](https://user-images.githubusercontent.com/79160439/194787516-0ec4181e-5799-4663-a2b1-5375ce173033.png)
 
-## Why are there `.js` files in here?
+## 🚀 Tecnologias
+Esse projeto foi desenvolvido com as seguintes tecnologias
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Vercel
 
-As per [T3-Axiom #3](https://github.com/t3-oss/create-t3-app/tree/next#3-typesafety-isnt-optional), we take typesafety as a first class citizen. Unfortunately, not all frameworks and plugins support TypeScript which means some of the configuration files have to be `.js` files.
+## 💻 Projeto
 
-We try to emphasize that these files are javascript for a reason, by explicitly declaring its type (`cjs` or `mjs`) depending on what's supported by the library it is used by. Also, all the `js` files in this project are still typechecked using a `@ts-check` comment at the top.
+### Problemática
+Vendas perdidas, documentação incompleta, atrasos na entrega e despesas indesejadas. Essas são algumas das limitações técnicas dos sistemas de empréstimo atuais que utilizam papéis na gestão dos contratos. 
 
-## What's next? How do I make an app with this?
+Atualmente, o sistema de contratação de crédito começa com a procura direta do credor por uma instituição financeira para obter algum tipo de crédito. 
 
-We try to keep this project as simple as possible, so you can start with the most basic configuration and then move on to more advanced configuration.
+Após pilhas de papéis e preenchimento de formulários que parecem infinitos, é gasto um tempo precioso para organização, conferência e análise dos dados oferecidos, que trazem de volta o ciclo exaustivo de reuniões, papelada e burocracias.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+E se fosse possível digitalizar todo processo de solicitação de crédito?
 
-- [Next-Auth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [TailwindCSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io) (using @next version? [see v10 docs here](https://trpc.io/docs/v10/))
+![image](https://user-images.githubusercontent.com/79160439/194787555-062f846c-b2b9-4c77-9960-b94d43f2dc15.png)
 
-Also checkout these awesome tutorials on `create-t3-app`.
+### Solução
+Pensando nisso, e sabendo que facilidade e agilidade são características fundamentais para qualquer ambiente de negócios, desenvolvemos a plataforma Avalizo.
+A Avalizo é uma plataforma que busca transformar os fluxos de trabalho fragmentados em experiências confiáveis ​​e contínuas, onde a tecnologia faz o trabalho pesado, para que as pessoas possam se concentrar no que mais importa.
+Nossa plataforma foi projetada para agilizar e proteger o processo de originação de empréstimos, equilibrando a necessidade comercial de velocidade, precisão, usabilidade e os rigorosos requisitos regulatórios do setor de empréstimos.
 
-- [Build a Blog With the T3 Stack - tRPC, TypeScript, Next.js, Prisma & Zod](https://www.youtube.com/watch?v=syEWlxVFUrY)
-- [Build a Live Chat Application with the T3 Stack - TypeScript, Tailwind, tRPC](https://www.youtube.com/watch?v=dXRRY37MPuk)
-- [Build a full stack app with create-t3-app](https://www.nexxel.dev/blog/ct3a-guestbook)
-- [A first look at create-t3-app](https://dev.to/ajcwebdev/a-first-look-at-create-t3-app-1i8f)
+### Diferenciais
+Compartilhe documentos e mensagens eletronicamente com clientes, agentes de crédito, avaliadores e muito mais em um instante. Você mantém o controle do seu fluxo de trabalho, sem papel e em tempo real.
 
-## How do I deploy this?
+Você aproveitará os benefícios da assinatura eletrônica, autenticação remota e agendamento de videoconferências para firmar acordos de qualquer lugar do mundo, evitando o incômodo de manter vários formulários, arquivamentos e o custo associado à manutenção de documentos físicos, para manter tudo em um só lugar.
 
-### Vercel
 
-We recommend deploying to [Vercel](https://vercel.com/?utm_source=t3-oss&utm_campaign=oss). It makes it super easy to deploy NextJs apps.
+Nossa plataforma tem foco na democratização, auxiliando na evolução dos sistemas de acesso ao crédito, impactando positivamente a vida de milhões de brasileiros e brasileiras.
 
-- Push your code to a GitHub repository.
-- Go to [Vercel](https://vercel.com/?utm_source=t3-oss&utm_campaign=oss) and sign up with GitHub.
-- Create a Project and import the repository you pushed your code to.
-- Add your environment variables.
-- Click **Deploy**
-- Now whenever you push a change to your repository, Vercel will automatically redeploy your website!
+![image](https://user-images.githubusercontent.com/79160439/194787604-d18ec137-429a-480e-b1ef-64fc052d175f.png)
 
-### Docker
+## ⚡️ Layout
+Você pode visualizar o layout do projeto através desse [link](https://www.figma.com/file/kbzetMiRJhDJDApSJnRZAJ/APP-BNDES?node-id=3%3A86). É necessário ter conta no Figma para acessá-lo.
 
-You can also dockerize this stack and deploy a container. See the [Docker deployment page](https://create-t3-app-nu.vercel.app/en/deployment/docker) for details.
+----
 
-## Useful resources
-
-Here are some resources that we commonly refer to:
-
-- [Protecting routes with Next-Auth.js](https://next-auth.js.org/configuration/nextjs#unstable_getserversession)
+Feito com 💜 by André, Edurda e Jhennifer
