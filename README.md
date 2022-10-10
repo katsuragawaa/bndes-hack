@@ -37,6 +37,8 @@ Nossa plataforma tem foco na democratização, auxiliando na evolução dos sist
 
 ![image](https://user-images.githubusercontent.com/79160439/194787604-d18ec137-429a-480e-b1ef-64fc052d175f.png)
 
+![image](https://user-images.githubusercontent.com/79160439/194787936-37a1ed51-e1a4-431b-8585-347fdae831a0.png)
+
 ## ⚡️ Layout
 Você pode visualizar o layout do projeto através desse [link](https://www.figma.com/file/kbzetMiRJhDJDApSJnRZAJ/APP-BNDES?node-id=3%3A86). É necessário ter conta no Figma para acessá-lo.
 
