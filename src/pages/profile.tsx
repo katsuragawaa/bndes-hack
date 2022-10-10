@@ -16,7 +16,7 @@ const Profile: NextPage = () => {
       <Navbar />
       <Sidebar />
 
-      <main className="container mt-16 ml-52 flex min-h-screen flex-col items-center">
+      <main className="mt-16 ml-52 flex min-h-screen flex-col items-center">
         <div className="flex justify-between gap-20 p-20">
           <div className="flex flex-1 flex-col gap-4 rounded-xl border-2 border-purple-100 p-20 shadow-lg">
             <h1 className="text-7xl font-bold text-hack-purple">Parabens!</h1>
